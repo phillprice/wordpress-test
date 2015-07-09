@@ -4,18 +4,17 @@ default:
     suites:
         default:
             contexts:
-                - PluginFeatureContext
+                - PluginFeatureContext:
+                    screen_shot_path: '%paths.base%/screenshots'
     extensions:
         Tmf\WordPressExtension:
-            path: '%paths.base%/vendor/wordpress'
-            symlink:
-                to: '%paths.base%/vendor/wordpress/wp-content/plugins/bdd-plugin-example'
+            path: '%paths.base%'
             connection:
                 username: 'root'
                 password: ''
 
         Behat\MinkExtension:
-            base_url:    'http://localhost:8000'
+            base_url:    'http://localhost'
             sessions:
                 default:
                     goutte: ~
