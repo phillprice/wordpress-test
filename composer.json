@@ -8,8 +8,21 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "tmf/wordpress-extension": "~0.1",
-        "behat/mink-goutte-driver": "^1.1@dev"
-    }
+     "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "*"
+      },
+
+      "require-dev": {
+        "behat/mink-goutte-driver": "~1.1",
+        "tmf/wordpress-extension": "dev-master",
+        "phpunit/phpunit": "~4.0",
+        "johnpbloch/wordpress": "4.0"
+      },
+      "autoload": {
+        "psr-4": { "Tmf\\PluginExample\\": "" }
+      },
+      "extra": {
+        "wordpress-install-dir": "vendor/wordpress"
+      }
 }
