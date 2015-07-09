@@ -1,0 +1,14 @@
+{
+    "name": "phillprice/wordpress-test",
+    "description": "Testing BDD and cap deployment in wordpress",
+    "authors": [
+        {
+            "name": "Phill Price",
+            "email": "phill@phillprice.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "tmf/wordpress-extension": "~0.1"
+    }
+}
