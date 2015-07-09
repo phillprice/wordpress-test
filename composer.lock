@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c97e3ccc63effe3d25deab83880897d",
+    "hash": "5fe3f57a4cde3ce18e5653f8a4fc68c8",
     "packages": [
         {
             "name": "composer/installers",
@@ -776,43 +776,6 @@
                 "uri"
             ],
             "time": "2015-06-24 19:55:15"
-        },
-        {
-            "name": "johnpbloch/wordpress",
-            "version": "4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "60ac88e39b85db3f317ac86d71a3474027d03bb9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/60ac88e39b85db3f317ac86d71a3474027d03bb9",
-                "reference": "60ac88e39b85db3f317ac86d71a3474027d03bb9",
-                "shasum": ""
-            },
-            "require": {
-                "johnpbloch/wordpress-core-installer": "~0.2",
-                "php": ">=5.3.2"
-            },
-            "type": "wordpress-core",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "WordPress Community",
-                    "homepage": "http://wordpress.org/about/"
-                }
-            ],
-            "description": "WordPress is web software you can use to create a beautiful website or blog.",
-            "homepage": "http://wordpress.org/",
-            "keywords": [
-                "blog",
-                "cms"
-            ],
-            "time": "2014-09-04 16:16:58"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
