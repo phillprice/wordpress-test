@@ -9,6 +9,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "tmf/wordpress-extension": "~0.1"
+        "tmf/wordpress-extension": "~0.1",
+        "behat/mink-goutte-driver": "^1.1@dev"
     }
 }
