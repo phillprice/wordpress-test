@@ -4,7 +4,7 @@
 
 set :stage, :production
 set :stage_url, "http://www.avalilyprice.com"
-server "phill_com", user: "phill", roles: %w{web app db}
+server "178.62.74.118", user: "phill", roles: %w{web app db}, port: 52366
 set :deploy_to, "/var/www/cap_target/ava"
 
 ############################################
