@@ -1,0 +1,15 @@
+production:
+  host: localhost
+  database: prd_dbase
+  username: prd_user
+  password: 'prd_pass'
+staging:
+  host: localhost
+  database: stg_dbase
+  username: stg_user
+  password: 'stg_pass'
+local:
+  host: localhost
+  database: wordpress
+  username: root
+  password: ''

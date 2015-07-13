@@ -3,9 +3,9 @@
 ############################################
 
 set :stage, :production
-set :stage_url, "http://www.example.com"
-server "XXX.XXX.XX.XXX", user: "SSHUSER", roles: %w{web app db}
-set :deploy_to, "/deploy/to/path"
+set :stage_url, "http://www.avalilyprice.com"
+server "178.62.74.118", user: "phill", roles: %w{web app db}, port: 52366
+set :deploy_to, "/var/www/cap_target/ava"
 
 ############################################
 # Setup Git
