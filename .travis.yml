@@ -13,8 +13,8 @@ services:
   - mysql
 
 before_script:
-  - sed -i.bak s#behat_dbuser#travis#g  behat.yml
-  - sed -i.bak s#password: 'behat_dpass'##g  behat.yml
+  - sed -i.bak s#behat_dbuser#travis#g behat.yml
+  - sed -i.bak s#behat_dpass##g behat.yml
   - cp .travis.composer.json composer.json                       # override normal composer file: use one without wordpress
   - rm composer.lock
   - composer install --no-interaction --prefer-source            # Have to prefer source or hit github rate limit
