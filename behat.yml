@@ -10,8 +10,8 @@ default:
         Tmf\WordPressExtension:
             path: '%paths.base%'
             connection:
-                username: 'root'
-                password: 'test'
+                username: 'behat_dbuser'
+                password: 'behat_dpass'
 
         Behat\MinkExtension:
             base_url:    'http://localhost:8000'
