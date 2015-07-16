@@ -10,19 +10,22 @@ env:
 services:
   - mysql
 
+addons:
+  sauce_connect:
+    username: "phillprice"
+    access_key: 
+      secure: CQHOTLSR4SUR5Wk3rVh6V9zZG/TUvoQKC69Wfm23uoj6D/l3hnYQSKi4RNebn6f3XhDEt9AAvu2AZTRYSPPYqVwY5H8MVVkmWYAobbJDv0G7A0kk92W2RYLrrg75yHUbf2XeUSOePLPQ7RvOfGUAsJPGQG83Wc0ARzs1Yxwv9cwU49pbxtlVbqT7wj/YiwPHtfaSG2wnpbo0P4ZR484MTc3cVfBMn2qFwA9Lhqdki6oi1TLJZlK+Gq7loeeA6dUI2bbEIqZpAcqNY/Tjs/q1Dcjcim0rrXWnSn7/cpLn2S6mWAOj0NB3m3a3tt5Kt1oYgLFBA2flZNrNdyZD+a6o0w6imwA78dWcfr3If8p3eniDTHVXHldy3wppBZif53knQCPss+XTo7M09VqW8XWMTOX26FhLTlpw5e79FfgM3ukLNNu78krZRhlG7qXmXuf3ba0LEFB0nHRy6ZT2q4Mnonnc8NIexcoqCMs3cxlmOoFOGHt40FDn3UxUjzgP3BzzgHQMKa0n6dAGq+P4PEkXsIW8aCMmX21msI5BUnb8GACTl/9aS1zVuydhL76PlPYeRhe2zwYWPPJuekTEk1CwSOWct25IYhIWY26Zx2BHCq2zHlea1QJcZ6f1HOsTieLQSpcCKS+Kzwsu0JNAn8VvnvU69+9izN91qdQ/U299f1U=
+  
 before_script:
   - mysql -e 'create database wordpress;'
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - chmod +x wp-cli.phar
   - php wp-cli.phar core config --dbname=wordpress --dbuser=travis
-  - php wp-cli.phar core install --url=http://localhost:80 --title=test --admin_user=phill --admin_password=password --admin_email=phill@phillprice.com
+  - php wp-cli.phar core install --url=ondemand.saucelabs.com:80 --title=test --admin_user=phill --admin_password=password --admin_email=phill@phillprice.com
   - sed -i.bak s#behat_dbuser#travis#g behat.yml
   - sed -i.bak s#behat_dpass##g behat.yml
-  - sed -i.bak s#port#80#g behat.yml
-  - cp .travis.composer.json composer.json                       # override normal composer file: use one without wordpress
-  - rm composer.lock
+  - sed -i.bak s#localhost:port#ondemand.saucelabs.com:80#g behat.yml
   - composer install --no-interaction --prefer-source            # Have to prefer source or hit github rate limit
-  - php -S localhost:80 -t vendor/wordpress &> /dev/null &     # webserver setup, ignore web server request log
   - sleep 3                                                      # wait for the built in web server
 
 script:
