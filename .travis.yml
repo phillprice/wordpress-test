@@ -15,6 +15,7 @@ services:
 before_script:
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - chmod +x wp-cli.phar
+  - mysql -e 'create database IF NOT EXISTS wordpress;'          # db setup
   - php wp-cli.phar core config --dbname=wordpress --dbuser=travis
   - php wp-cli.phar core install --url=http://localhost:8000 --title=test --admin_user=phill --admin_password=password --admin_email=phill@phillprice.com
   - sed -i.bak s#behat_dbuser#travis#g behat.yml
@@ -23,7 +24,6 @@ before_script:
   - rm composer.lock
   - composer install --no-interaction --prefer-source            # Have to prefer source or hit github rate limit
   - composer require --dev "johnpbloch/wordpress $WP_VERSION"    # require specific wordpress version for build matrix
-  - mysql -e 'create database IF NOT EXISTS wordpress;'          # db setup
   - php -S localhost:8000 -t vendor/wordpress &> /dev/null &     # webserver setup, ignore web server request log
   - sleep 3                                                      # wait for the built in web server
 
