@@ -15,8 +15,7 @@ services:
 before_script:
   - curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
   - chmod +x wp-cli.phar
-  - mysql -e 'create database IF NOT EXISTS wordpress;'          # db setup
-  - php wp-cli.phar core config --dbname=wordpress --dbuser=travis
+  - php wp-cli.phar core config --dbname=myapp_test --dbuser=travis
   - php wp-cli.phar core install --url=http://localhost:8000 --title=test --admin_user=phill --admin_password=password --admin_email=phill@phillprice.com
   - sed -i.bak s#behat_dbuser#travis#g behat.yml
   - sed -i.bak s#behat_dpass##g behat.yml
