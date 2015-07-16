@@ -18,6 +18,7 @@ before_script:
   - php wp-cli.phar core install --url=http://localhost:8000 --title=test --admin_user=phill --admin_password=password --admin_email=phill@phillprice.com
   - sed -i.bak s#behat_dbuser#travis#g behat.yml
   - sed -i.bak s#behat_dpass##g behat.yml
+  - sed -i.bak s#port#80#g behat.yml
   - cp .travis.composer.json composer.json                       # override normal composer file: use one without wordpress
   - rm composer.lock
   - composer install --no-interaction --prefer-source            # Have to prefer source or hit github rate limit
