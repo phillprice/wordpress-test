@@ -1,4 +1,4 @@
-Feature: As a visitor I should be able to load the home page
+Feature: As a visitor I should be able to load the home page.
 
 	Scenario: Home page Index
 		Given I am on the homepage
